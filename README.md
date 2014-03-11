@@ -73,11 +73,11 @@ To:
 ##Usage
 
 ```javascript
-var tree = directoryTree(/some/path);
+var tree = directoryTree('/some/path');
 ```
 
 And you can also filter by extensions:
 
 ```javascript
-var filteredTree = directoryTree(/some/path, ['.jpg', '.png']);
+var filteredTree = directoryTree('/some/path', ['.jpg', '.png']);
 ```
