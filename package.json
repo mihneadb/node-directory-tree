@@ -1,0 +1,19 @@
+{
+  "name": "directory-tree",
+  "version": "0.1.0",
+  "description": "Convert a directory tree to a JS object.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mihneadb/node-directory-tree"
+  },
+  "keywords": [
+    "directory",
+    "tree"
+  ],
+  "author": "Mihnea Dobrescu-Balaur",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mihneadb/node-directory-tree/issues"
+  },
+  "homepage": "https://github.com/mihneadb/node-directory-tree"
+}
