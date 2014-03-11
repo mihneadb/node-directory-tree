@@ -10,6 +10,7 @@
     "directory",
     "tree"
   ],
+  "main": "lib/directory-tree.js",
   "author": "Mihnea Dobrescu-Balaur",
   "license": "MIT",
   "bugs": {
