@@ -73,11 +73,13 @@ To:
 ##Usage
 
 ```javascript
-var tree = directoryTree('/some/path');
+var dirTree = require('directory-tree');
+var tree = dirTree.directoryTree('/some/path');
 ```
 
 And you can also filter by extensions:
 
 ```javascript
-var filteredTree = directoryTree('/some/path', ['.jpg', '.png']);
+var dirTree = require('directory-tree');
+var filteredTree = dirTree.directoryTree('/some/path', ['.jpg', '.png']);
 ```
