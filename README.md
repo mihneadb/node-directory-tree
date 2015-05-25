@@ -21,20 +21,28 @@ To:
 {
   "path": "",
   "name": "photos",
+  "depth": 0,
+  "size": 608,
   "type": "directory",
   "children": [
     {
       "path": "summer",
       "name": "summer",
+      "depth": 1,
+      "size": 404,
       "type": "directory",
       "children": [
         {
           "path": "summer/june",
           "name": "june",
+          "depth": 2,
+          "size": 402,
           "type": "directory",
           "children": [
             {
               "path": "summer/june/windsurf.jpg",
+              "depth": 3,
+              "size": 400,
               "name": "windsurf.jpg",
               "type": "file"
             }
@@ -45,21 +53,29 @@ To:
     {
       "path": "winter",
       "name": "winter",
+      "depth": 1,
+      "size": 204,
       "type": "directory",
       "children": [
         {
           "path": "winter/january",
           "name": "january",
+          "depth": 2,
+          "size": 202,
           "type": "directory",
           "children": [
             {
               "path": "winter/january/ski.png",
               "name": "ski.png",
+              "depth": 3,
+              "size": 100,
               "type": "file"
             },
             {
               "path": "winter/january/snowboard.jpg",
               "name": "snowboard.jpg",
+              "depth": 3,
+              "size": 100,
               "type": "file"
             }
           ]

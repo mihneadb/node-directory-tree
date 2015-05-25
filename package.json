@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/mihneadb/node-directory-tree/issues"
   },
-  "homepage": "https://github.com/mihneadb/node-directory-tree"
+  "homepage": "https://github.com/mihneadb/node-directory-tree",
+  "dependencies": {
+    "mocha": "^2.2.5"
+  }
 }
