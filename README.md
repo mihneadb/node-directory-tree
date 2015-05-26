@@ -99,3 +99,15 @@ And you can also filter by extensions:
 var dirTree = require('directory-tree');
 var filteredTree = dirTree.directoryTree('/some/path', ['.jpg', '.png']);
 ```
+
+
+And you can also add a depth limit for the directory tree you wanted created:
+
+```javascript
+var dirTree = require('directory-tree');
+var filteredTree = dirTree.directoryTree('/some/path', ['.jpg', '.png'], 2);
+```
+
+
+In general the arguments are `path`, Array extensions to be filtered, and desired
+ tree depth. If no depth argument is passed the entire file tree will be constructed.
