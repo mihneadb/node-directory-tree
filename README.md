@@ -91,3 +91,14 @@ And you can also filter by extensions:
 var dirTree = require('directory-tree');
 var filteredTree = dirTree.directoryTree('/some/path', ['.jpg', '.png']);
 ```
+
+
+## Dev
+
+To run tests,
+
+```bash
+mocha
+```
+
+Make sure you have the dev dependcies installed (e.g. `npm install .`)
