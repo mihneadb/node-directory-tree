@@ -17,10 +17,10 @@
     "url": "https://github.com/mihneadb/node-directory-tree/issues"
   },
   "homepage": "https://github.com/mihneadb/node-directory-tree",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
-    "chai": "^2.3.0"
+    "chai": "^2.3.0",
+    "mocha": "^2.2.5"
   },
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha"
