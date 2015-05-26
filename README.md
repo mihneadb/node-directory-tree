@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/SimplyAhmazing/node-directory-tree.svg)](https://travis-ci.org/SimplyAhmazing/node-directory-tree)
+
 #directory-tree
 
 Creates an object representing a directory tree.
