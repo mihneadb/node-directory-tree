@@ -21,19 +21,19 @@ To:
 {
   "path": "",
   "name": "photos",
-  "size": 608,
+  "size": 600,
   "type": "directory",
   "children": [
     {
       "path": "summer",
       "name": "summer",
-      "size": 404,
+      "size": 400,
       "type": "directory",
       "children": [
         {
           "path": "summer/june",
           "name": "june",
-          "size": 402,
+          "size": 400,
           "type": "directory",
           "children": [
             {
@@ -49,13 +49,13 @@ To:
     {
       "path": "winter",
       "name": "winter",
-      "size": 204,
+      "size": 200,
       "type": "directory",
       "children": [
         {
           "path": "winter/january",
           "name": "january",
-          "size": 202,
+          "size": 200,
           "type": "directory",
           "children": [
             {
