@@ -7,9 +7,14 @@ describe('directoryTree', function() {
     var tree = dirtree.directoryTree('./test/test_data');
     expect(tree).to.be.an('object');
   });
-  it('should display file size as a dir', function() {
+
+  it('should list the children in a directory', function() {
     var tree = dirtree.directoryTree('./test/test_data');
-    console.log(tree);
-    expect(tree).to.be.an('object');
+    expect(tree.children.length).to.equal(4);
+  });
+
+  it('should display the size of a directory (summing up the children)', function() {
+    var tree = dirtree.directoryTree('./test/test_data');
+    expect(tree.size).to.equal(23600);
   });
 });
