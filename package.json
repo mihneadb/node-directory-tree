@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/mihneadb/node-directory-tree",
   "dependencies": {
-    "mocha": "^2.2.5"
+  },
+  "devDependencies": {
+    "chai": "^2.3.0"
   }
 }
