@@ -21,5 +21,8 @@
   },
   "devDependencies": {
     "chai": "^2.3.0"
+  },
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha"
   }
 }
