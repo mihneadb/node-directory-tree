@@ -95,10 +95,10 @@ var filteredTree = dirTree.directoryTree('/some/path', ['.jpg', '.png']);
 
 ## Dev
 
-To run tests,
+To run tests go the package root in your CLI and run,
 
 ```bash
-mocha
+$ mocha
 ```
 
 Make sure you have the dev dependcies installed (e.g. `npm install .`)
