@@ -16,5 +16,13 @@
   "bugs": {
     "url": "https://github.com/mihneadb/node-directory-tree/issues"
   },
-  "homepage": "https://github.com/mihneadb/node-directory-tree"
+  "homepage": "https://github.com/mihneadb/node-directory-tree",
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^2.3.0",
+    "mocha": "^2.2.5"
+  },
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha"
+  }
 }
