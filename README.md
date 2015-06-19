@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/mihneadb/node-directory-tree.svg)](https://travis-ci.org/mihneadb/node-directory-tree)
+[![Build Status](https://travis-ci.org/Meistercoach83/node-directory-tree.svg)](https://travis-ci.org/Meistercoach83/node-directory-tree)
 
 #directory-tree
 
