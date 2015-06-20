@@ -1,6 +1,6 @@
-var expect = require('chai').expect,
-        dirtree = require('../lib/directory-tree'),
-        fs = require('fs');
+var expect = require('chai').expect;
+var dirtree = require('../lib/directory-tree');
+var fs = require('fs');
 
 describe('directoryTree', function () {
 
@@ -29,17 +29,23 @@ describe('directoryTree', function () {
     describe('Tests for ignoring files and / or directories', function () {
 
         it('should ignore files', function () {
-            var tree = dirtree.directoryTree('./test/test_data/some_dir_2', {'ignoreList': ['.DS_Store', '.gitkeep']});
+            var tree = dirtree.directoryTree('./test/test_data/some_dir_2', {
+                'ignoreList': ['.DS_Store', '.gitkeep']
+            });
             expect(tree.children.length).to.equal(0);
         });
 
         it('should ignore directories', function () {
-            var tree = dirtree.directoryTree('./test/test_data', {'ignoreList': ['test/test_data/some_dir_2']});
+            var tree = dirtree.directoryTree('./test/test_data', {
+                'ignoreList': ['test/test_data/some_dir_2']
+            });
             expect(tree.children.length).to.equal(3);
         });
 
         it('should ignore files and directories', function () {
-            var tree = dirtree.directoryTree('./test/test_data', {'ignoreList': ['test/test_data/some_dir_2', 'file_a.txt']});
+            var tree = dirtree.directoryTree('./test/test_data', {
+                'ignoreList': ['test/test_data/some_dir_2', 'file_a.txt']
+            });
             expect(tree.children.length).to.equal(2);
         });
     });
@@ -47,7 +53,9 @@ describe('directoryTree', function () {
     describe('Tests for fileExtensions', function () {
 
         it('should get only files with certain extensions', function () {
-            var tree = dirtree.directoryTree('./test/test_data/some_dir', {'fileExtensions': ['.png']});
+            var tree = dirtree.directoryTree('./test/test_data/some_dir', {
+                'fileExtensions': ['.png']
+            });
             expect(tree.children.length).to.equal(2);
         });
 
