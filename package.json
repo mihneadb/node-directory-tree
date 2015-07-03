@@ -4,14 +4,16 @@
   "description": "Convert a directory tree to a JS object.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mihneadb/node-directory-tree"
+    "url": "git+https://github.com/mihneadb/node-directory-tree.git"
   },
   "keywords": [
     "directory",
     "tree"
   ],
   "main": "lib/directory-tree.js",
-  "author": "Mihnea Dobrescu-Balaur",
+  "author": {
+    "name": "Mihnea Dobrescu-Balaur"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/mihneadb/node-directory-tree/issues"
@@ -24,5 +26,12 @@
   },
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha"
-  }
+  },
+  "gitHead": "5e73d3c683e1ea48a2671d4cfec3d032175ef2fa",
+  "readme": "[![Build Status](https://travis-ci.org/mihneadb/node-directory-tree.svg)](https://travis-ci.org/mihneadb/node-directory-tree)\n\n#directory-tree\n\nCreates an object representing a directory tree.\n\nFrom:\n\n```\nphotos\n├── summer\n│   └── june\n│       └── windsurf.jpg\n└── winter\n    └── january\n        ├── ski.png\n        └── snowboard.jpg\n```\n\nTo:\n\n```json\n{\n  \"path\": \"\",\n  \"name\": \"photos\",\n  \"size\": 600,\n  \"type\": \"directory\",\n  \"children\": [\n    {\n      \"path\": \"summer\",\n      \"name\": \"summer\",\n      \"size\": 400,\n      \"type\": \"directory\",\n      \"children\": [\n        {\n          \"path\": \"summer/june\",\n          \"name\": \"june\",\n          \"size\": 400,\n          \"type\": \"directory\",\n          \"children\": [\n            {\n              \"path\": \"summer/june/windsurf.jpg\",\n              \"size\": 400,\n              \"name\": \"windsurf.jpg\",\n              \"type\": \"file\"\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"path\": \"winter\",\n      \"name\": \"winter\",\n      \"size\": 200,\n      \"type\": \"directory\",\n      \"children\": [\n        {\n          \"path\": \"winter/january\",\n          \"name\": \"january\",\n          \"size\": 200,\n          \"type\": \"directory\",\n          \"children\": [\n            {\n              \"path\": \"winter/january/ski.png\",\n              \"name\": \"ski.png\",\n              \"size\": 100,\n              \"type\": \"file\"\n            },\n            {\n              \"path\": \"winter/january/snowboard.jpg\",\n              \"name\": \"snowboard.jpg\",\n              \"size\": 100,\n              \"type\": \"file\"\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}\n```\n\n##Usage\n\n```javascript\nvar dirTree = require('directory-tree');\nvar tree = dirTree.directoryTree('/some/path');\n```\n\nAnd you can also add some options:\n\n```javascript\nvar dirTree = require('directory-tree');\nvar treeOptions = {\n                'hideFiles': true, // show only directories in tree\n                'hideEmptyDirectories': false, // display empty folders\n                'ignoreList': ['Winter', 'Summer.txt'], // define a ignoreList of files / directories\n                'fileExtensions': ['.jpg', '.png'] // show only certain fileExtensions\n            };\n            var filteredTree = dirTree.directoryTree('/some/path', treeOptions);\n```\n\n\n## Dev\n\nTo run tests go the package root in your CLI and run,\n\n```bash\n$ mocha\n```\n\nMake sure you have the dev dependcies installed (e.g. `npm install .`)\n",
+  "readmeFilename": "README.md",
+  "_id": "directory-tree@0.1.1",
+  "_shasum": "aa19f19e89f1238a56dc872ee351eced165f211f",
+  "_from": "git+https://github.com/Meistercoach83/node-directory-tree.git",
+  "_resolved": "git+https://github.com/Meistercoach83/node-directory-tree.git#5e73d3c683e1ea48a2671d4cfec3d032175ef2fa"
 }

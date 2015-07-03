@@ -9,6 +9,11 @@ describe('directoryTree', function () {
         expect(tree).to.be.an('object');
     });
 
+    it('should display the size of a directory (summing up the children)', function() {
+       var tree = dirtree.directoryTree('./test/test_data', ['.DS_Store', '.gitkeep']);
+       expect(tree.size).to.equal(11424);
+    });
+
     describe('Tests for listing files', function () {
         it('should list the children in a directory [default]', function () {
             var tree = dirtree.directoryTree('./test/test_data');
