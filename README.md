@@ -87,11 +87,17 @@ var dirTree = require('directory-tree');
 var tree = dirTree.directoryTree('/some/path');
 ```
 
-And you can also filter by extensions:
+And you can also add some options:
 
 ```javascript
 var dirTree = require('directory-tree');
-var filteredTree = dirTree.directoryTree('/some/path', ['.jpg', '.png']);
+var treeOptions = {
+                'hideFiles': true, // show only directories in tree
+                'hideEmptyDirectories': false, // display empty folders
+                'ignoreList': ['Winter', 'Summer.txt'], // define a ignoreList of files / directories
+                'fileExtensions': ['.jpg', '.png'] // show only certain fileExtensions
+            };
+            var filteredTree = dirTree.directoryTree('/some/path', treeOptions);
 ```
 
 
