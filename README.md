@@ -8,14 +8,14 @@ Creates an object representing a directory tree.
 ##Usage
 
 ```javascript
-var dirTree = require('directory-tree').directoryTree;
+var dirTree = require('directory-tree');
 var tree = dirTree('/some/path');
 ```
 
 And you can also filter by extensions:
 
 ```javascript
-var dirTree = require('directory-tree').directoryTree;
+var dirTree = require('directory-tree');
 var filteredTree = dirTree('/some/path', ['.jpg', '.png']);
 ```
 
@@ -39,61 +39,52 @@ To:
 
 ```json
 {
-  "path": "",
+  "path": "photos",
   "name": "photos",
   "size": 600,
-  "type": "directory",
   "children": [
     {
-      "path": "summer",
+      "path": "photos/summer",
       "name": "summer",
       "size": 400,
-      "type": "directory",
       "children": [
         {
-          "path": "summer/june",
+          "path": "photos/summer/june",
           "name": "june",
           "size": 400,
-          "type": "directory",
           "children": [
             {
-              "path": "summer/june/windsurf.jpg",
+              "path": "photos/summer/june/windsurf.jpg",
               "size": 400,
               "name": "windsurf.jpg",
-              "type": "file"
             }
           ]
         }
       ]
     },
     {
-      "path": "winter",
+      "path": "photos/winter",
       "name": "winter",
       "size": 200,
-      "type": "directory",
       "children": [
         {
-          "path": "winter/january",
+          "path": "photos/winter/january",
           "name": "january",
           "size": 200,
-          "type": "directory",
           "children": [
             {
-              "path": "winter/january/ski.png",
+              "path": "photos/winter/january/ski.png",
               "name": "ski.png",
               "size": 100,
-              "type": "file"
             },
             {
-              "path": "winter/january/snowboard.jpg",
+              "path": "photos/winter/january/snowboard.jpg",
               "name": "snowboard.jpg",
               "size": 100,
-              "type": "file"
             }
           ]
         }
       ]
     }
   ]
-}
-```
+}```
