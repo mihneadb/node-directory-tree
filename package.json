@@ -1,6 +1,6 @@
 {
   "name": "directory-tree",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "Convert a directory tree to a JS object.",
   "repository": {
     "type": "git",
@@ -23,6 +23,6 @@
     "mocha": "^2.2.5"
   },
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha"
+    "test": "mocha"
   }
 }
