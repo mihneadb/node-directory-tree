@@ -1,8 +1,26 @@
-[![Build Status](https://travis-ci.org/mihneadb/node-directory-tree.svg)](https://travis-ci.org/mihneadb/node-directory-tree)
+[![Build Status](https://travis-ci.org/tborychowski/node-directory-tree.svg?branch=master)](https://travis-ci.org/tborychowski/node-directory-tree)
 
 #directory-tree
 
 Creates an object representing a directory tree.
+
+
+##Usage
+
+```javascript
+var dirTree = require('directory-tree').directoryTree;
+var tree = dirTree('/some/path');
+```
+
+And you can also filter by extensions:
+
+```javascript
+var dirTree = require('directory-tree').directoryTree;
+var filteredTree = dirTree('/some/path', ['.jpg', '.png']);
+```
+
+
+
 
 From:
 
@@ -79,28 +97,3 @@ To:
   ]
 }
 ```
-
-##Usage
-
-```javascript
-var dirTree = require('directory-tree');
-var tree = dirTree.directoryTree('/some/path');
-```
-
-And you can also filter by extensions:
-
-```javascript
-var dirTree = require('directory-tree');
-var filteredTree = dirTree.directoryTree('/some/path', ['.jpg', '.png']);
-```
-
-
-## Dev
-
-To run tests go the package root in your CLI and run,
-
-```bash
-$ mocha
-```
-
-Make sure you have the dev dependcies installed (e.g. `npm install .`)
