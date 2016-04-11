@@ -1,3 +1,5 @@
+'use strict';
+
 const expect = require('chai').expect;
 const dirtree = require('../lib/directory-tree');
 
