@@ -104,3 +104,9 @@ $ npm test
 ```
 
 Make sure you have the dev dependcies installed (e.g. `npm install .`)
+
+
+## Node version
+
+Check out version `0.1.1` if you need support for older versions of node.
+
