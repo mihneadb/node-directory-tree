@@ -58,8 +58,9 @@ And return a js object:
           "children": [
             {
               "path": "photos/summer/june/windsurf.jpg",
-              "size": 400,
               "name": "windsurf.jpg",
+              "size": 400,
+              "extension": ".jpg"
             }
           ]
         }
@@ -79,11 +80,13 @@ And return a js object:
               "path": "photos/winter/january/ski.png",
               "name": "ski.png",
               "size": 100,
+              "extension": ".png"
             },
             {
               "path": "photos/winter/january/snowboard.jpg",
               "name": "snowboard.jpg",
               "size": 100,
+              "extension": ".jpg"
             }
           ]
         }
@@ -92,8 +95,8 @@ And return a js object:
   ]
 }
 ```
-
-
+## Note
+Device, FIFO and socket files are ignored.
 
 ## Dev
 
