@@ -98,6 +98,10 @@ And return a js object:
 ## Note
 Device, FIFO and socket files are ignored.
 
+Files to which the user does not have permissions are included in the directory
+tree, however, directories to which the user does not have permissions, along
+with all of its contained files, are completely ignored.
+
 ## Dev
 
 To run tests go the package root in your CLI and run,
@@ -112,4 +116,3 @@ Make sure you have the dev dependcies installed (e.g. `npm install .`)
 ## Node version
 
 Check out version `0.1.1` if you need support for older versions of node.
-

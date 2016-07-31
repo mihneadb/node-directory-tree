@@ -21,4 +21,8 @@ describe('directoryTree', () => {
 		expect(tree.size).to.be.above(11000);
 	});
 
+	it('should not crash with directories where the user does not have necessary permissions', () => {
+		const tree = dirtree('/root/', ['.txt']);
+		expect(tree).to.equal(null);
+	});
 });
