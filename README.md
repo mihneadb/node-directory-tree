@@ -25,7 +25,18 @@ var dirTree = require('directory-tree');
 var filteredTree = dirTree('/some/path', ['.jpg', '.png']);
 ```
 
-This will take a directory tree:
+A callback function can be executed with each file that matches the extensions provided:
+```js
+var dirTree = require('directory-tree');
+var tree = dirtree('./test/test_data', ['.jpg'], function(item, PATH) {
+	console.log(item);
+});
+```
+
+The callback function takes the directory item (has path, name, size, and extension) and an instance of node path https://nodejs.org/api/path.html
+
+##Result
+Given a directory structured like this:
 
 ```
 photos
@@ -38,7 +49,7 @@ photos
         └── snowboard.jpg
 ```
 
-And return a js object:
+directory-tree will return this js object:
 
 ```json
 {
