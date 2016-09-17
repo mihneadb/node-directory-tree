@@ -13,7 +13,9 @@ describe('directoryTree', () => {
 
 	it('should list the children in a directory', () => {
 		const tree = dirtree('./test/test_data', ['.txt']);
-		expect(tree.children.length).to.equal(3);
+
+		// 4 including the empty `some_dir_2`.
+		expect(tree.children.length).to.equal(4);
 	});
 
 	it('should display the size of a directory (summing up the children)', () => {
