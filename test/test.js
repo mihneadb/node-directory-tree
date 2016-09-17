@@ -2,6 +2,7 @@
 
 const expect = require('chai').expect;
 const dirtree = require('../lib/directory-tree');
+const testTree = require('./fixture.js');
 
 
 describe('directoryTree', () => {
@@ -26,5 +27,10 @@ describe('directoryTree', () => {
 	it('should not crash with directories where the user does not have necessary permissions', () => {
 		const tree = dirtree('/root/', ['.txt']);
 		expect(tree).to.equal(null);
+	});
+
+	it('should return the correct exact result', () => {
+		const tree = dirtree('./test/test_data');
+		expect(tree).to.deep.equal(testTree);
 	});
 });
