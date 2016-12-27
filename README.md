@@ -33,7 +33,7 @@ var tree = dirtree('./test/test_data', ['.jpg'], function(item, PATH) {
 });
 ```
 
-The callback function takes the directory item (has path, name, size, and extension) and an instance of node path https://nodejs.org/api/path.html
+The callback function takes the directory item (has path, name, size, and extension) and an instance of [node path](https://nodejs.org/api/path.html)
 
 ##Result
 Given a directory structured like this:
