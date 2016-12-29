@@ -19,6 +19,28 @@ describe('directoryTree', () => {
 		expect(tree.children.length).to.equal(4);
 	});
 
+	it('should execute a callback function for each file with no specified extensions', () => {
+		let number_of_files =  7;
+		let callback_executed_times = 0;
+
+		const tree = dirtree('./test/test_data', null, function(item, PATH) {
+			callback_executed_times++;
+		});
+
+		expect(callback_executed_times).to.equal(number_of_files);
+	});
+
+	it('should execute a callback function for each file with a specified extension', () => {
+		let number_of_files =  6;
+		let callback_executed_times = 0;
+
+		const tree = dirtree('./test/test_data', ['.txt'], function(item, PATH) {
+			callback_executed_times++;
+		});
+
+		expect(callback_executed_times).to.equal(number_of_files);
+	});
+
 	it('should display the size of a directory (summing up the children)', () => {
 		const tree = dirtree('./test/test_data', ['.txt']);
 		expect(tree.size).to.be.above(11000);
