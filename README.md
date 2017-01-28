@@ -1,41 +1,42 @@
 [![Build Status](https://travis-ci.org/mihneadb/node-directory-tree.svg)](https://travis-ci.org/mihneadb/node-directory-tree)
 
-#directory-tree
+# directory-tree
 
-Creates an javascript object representing a directory tree.
+Creates a JavaScript object representing a directory tree.
 
 ## Install
-```js
-npm i -S directory-tree
-
+```bash
+$ npm install directory-tree
 ```
 
-
-##Usage
+## Usage
 
 ```js
-var dirTree = require('directory-tree');
-var tree = dirTree('/some/path');
+const dirTree = require('directory-tree');
+const tree = dirTree('/some/path');
 ```
 
 And you can also filter by extensions:
 
 ```js
-var dirTree = require('directory-tree');
-var filteredTree = dirTree('/some/path', ['.jpg', '.png']);
+const dirTree = require('directory-tree');
+const filteredTree = dirTree('/some/path', ['.jpg', '.png']);
 ```
 
 A callback function can be executed with each file that matches the extensions provided:
+
 ```js
-var dirTree = require('directory-tree');
-var tree = dirtree('./test/test_data', ['.jpg'], function(item, PATH) {
+const PATH = require('path');
+const dirTree = require('directory-tree');
+
+const tree = dirtree('./test/test_data', ['.jpg'], (item, PATH) => {
 	console.log(item);
 });
 ```
 
-The callback function takes the directory item (has path, name, size, and extension) and an instance of [node path](https://nodejs.org/api/path.html)
+The callback function takes the directory item (has path, name, size, and extension) and an instance of [node path](https://nodejs.org/api/path.html).
 
-##Result
+## Result
 Given a directory structured like this:
 
 ```
@@ -49,7 +50,7 @@ photos
         └── snowboard.jpg
 ```
 
-directory-tree will return this js object:
+`directory-tree` will return this JS object:
 
 ```json
 {
@@ -121,9 +122,9 @@ To run tests go the package root in your CLI and run,
 $ npm test
 ```
 
-Make sure you have the dev dependcies installed (e.g. `npm install .`)
-
+Make sure you have the dev dependencies installed (e.g. `npm install .`)
 
 ## Node version
 
-Check out version `0.1.1` if you need support for older versions of node.
+This project requires at least Node v4.2.
+Check out version `0.1.1` if you need support for older versions of Node.
