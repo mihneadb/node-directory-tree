@@ -29,7 +29,7 @@ A callback function can be executed with each file that matches the extensions p
 const PATH = require('path');
 const dirTree = require('directory-tree');
 
-const tree = dirtree('./test/test_data', ['.jpg'], (item, PATH) => {
+const tree = dirTree('./test/test_data', ['.jpg'], (item, PATH) => {
 	console.log(item);
 });
 ```
