@@ -20,7 +20,7 @@ And you can also filter by extensions:
 
 ```js
 const dirTree = require('directory-tree');
-const filteredTree = dirTree('/some/path', ['.jpg', '.png']);
+const filteredTree = dirTree('/some/path', {extensions:['.jpg', '.png']});
 ```
 
 A callback function can be executed with each file that matches the extensions provided:
@@ -29,7 +29,7 @@ A callback function can be executed with each file that matches the extensions p
 const PATH = require('path');
 const dirTree = require('directory-tree');
 
-const tree = dirTree('./test/test_data', ['.jpg'], (item, PATH) => {
+const tree = dirTree('./test/test_data', {extensions:['.jpg']}, (item, PATH) => {
 	console.log(item);
 });
 ```
