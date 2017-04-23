@@ -27,7 +27,7 @@ You can also exclude paths from the tree using a regex:
 
 ```js
 const dirTree = require('directory-tree');
-const filteredTree = dirTree('/some/path', {excludes:/some_path_to_exclude/});
+const filteredTree = dirTree('/some/path', {exclude:/some_path_to_exclude/});
 ```
 
 A callback function can be executed with each file that matches the extensions provided:
