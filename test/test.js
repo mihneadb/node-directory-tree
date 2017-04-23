@@ -3,6 +3,7 @@
 const expect = require('chai').expect;
 const dirtree = require('../lib/directory-tree');
 const testTree = require('./fixture.js');
+const excludeTree =  require('./fixtureExclude.js')
 
 
 describe('directoryTree', () => {
@@ -65,4 +66,10 @@ describe('directoryTree', () => {
 		}
 		expect(badFunction).to.throw(error);
 	})
+
+	it('should exclude the correct folders', () => {
+		const tree = dirtree('./test/test_data',{exclude: /another_dir/});
+		expect(tree).to.deep.equal(excludeTree);
+	});
+
 });
