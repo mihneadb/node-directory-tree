@@ -55,4 +55,14 @@ describe('directoryTree', () => {
 		const tree = dirtree('./test/test_data');
 		expect(tree).to.deep.equal(testTree);
 	});
+
+	it('should not swallow exceptions thrown in the callback function', () => {
+		const error = new Error('Something happened!');
+		const badFunction = function () {
+			dirtree('./test/test_data', {extensions:['.txt']}, function(item) {
+			  throw error;
+			});
+		}
+		expect(badFunction).to.throw(error);
+	})
 });
