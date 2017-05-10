@@ -16,11 +16,13 @@ const dirTree = require('directory-tree');
 const tree = dirTree('/some/path');
 ```
 
-And you can also filter by extensions:
+And you can also filter by an includeOnly regex:
+This is useful for including certain extensions of directories.
 
 ```js
 const dirTree = require('directory-tree');
-const filteredTree = dirTree('/some/path', {extensions:['.jpg', '.png']});
+const filteredTree = dirTree('/some/path', {includeOnly:/only_include_if_this_matches/});
+const filteredTxt = dirTree('/some/path', {includeOnly:/\.txt/});
 ```
 
 You can also exclude paths from the tree using a regex:
@@ -29,6 +31,9 @@ You can also exclude paths from the tree using a regex:
 const dirTree = require('directory-tree');
 const filteredTree = dirTree('/some/path', {exclude:/some_path_to_exclude/});
 ```
+**Note** The exclude regex will take precedence over the includeOnly.
+An exclude path will NOT be added even if it matches the includedOnly regex. 
+
 
 A callback function can be executed with each file that matches the extensions provided:
 
