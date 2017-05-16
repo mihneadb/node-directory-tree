@@ -18,9 +18,6 @@ const tree = dirTree('/some/path');
 
 And you can also filter by an extensions regex:
 This is useful for including only certain types of files.
-You can also overload this regex to include only certain folder paths, HOWEVER this is not
-recommended and can lead to unintended results.
-
 
 ```js
 const dirTree = require('directory-tree');
@@ -33,9 +30,6 @@ You can also exclude paths from the tree using a regex:
 const dirTree = require('directory-tree');
 const filteredTree = dirTree('/some/path', {exclude:/some_path_to_exclude/});
 ```
-**Note** The exclude regex will take precedence over the extensions regex.
-An exclude path will NOT be added even if it matches the extensions regex. 
-
 
 A callback function can be executed with each file that matches the extensions provided:
 
