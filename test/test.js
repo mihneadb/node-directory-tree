@@ -4,6 +4,7 @@ const expect = require('chai').expect;
 const dirtree = require('../lib/directory-tree');
 const testTree = require('./fixture.js');
 const excludeTree =  require('./fixtureExclude.js')
+const depthTree =  require('./fixtureDepth.js')
 
 
 describe('directoryTree', () => {
@@ -70,4 +71,9 @@ describe('directoryTree', () => {
 		const tree = dirtree('./test/test_data',{exclude: /another_dir/});
 		expect(tree).to.deep.equal(excludeTree);
 	});
+
+    it('should only show the second level of the tree', () => {
+        const tree = dirtree('./test/test_data',{depth: 2});
+        expect(tree).to.deep.equal(depthTree);
+    });
 });
