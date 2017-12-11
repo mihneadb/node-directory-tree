@@ -22,9 +22,7 @@ tree = {
             "children": [
                 {
                     "path": "test/test_data/some_dir/another_dir",
-                    "name": "another_dir",
-                    "children": null,
-                    "type": "directory"
+                    "name": "another_dir"
                 },
                 {
                     "path": "test/test_data/some_dir/file_a.txt",
