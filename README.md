@@ -31,6 +31,12 @@ const dirTree = require('directory-tree');
 const filteredTree = dirTree('/some/path', {exclude:/some_path_to_exclude/});
 ```
 
+You also can define the maximum depth of the directory tree.
+```js
+const dirTree = require('directory-tree');
+const filteredTree = dirTree('/some/path', {depth:1});
+```
+
 A callback function can be executed with each file that matches the extensions provided:
 
 ```js
