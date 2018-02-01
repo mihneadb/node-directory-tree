@@ -31,6 +31,17 @@ describe('directoryTree', () => {
 		expect(callback_executed_times).to.equal(number_of_files);
 	});
 
+	it('should execute a callback function for each directory', () => {
+		let number_of_files =  1;
+		let callback_executed_times = 0;
+
+		const tree = dirtree('./test/test_data', null, null, function(item, PATH) {
+			callback_executed_times++;
+		});
+
+		expect(callback_executed_times).to.equal(number_of_files);
+	});
+
 	it('should execute a callback function for each file with specified extensions', () => {
 		let number_of_files =  6;
 		let callback_executed_times = 0;
@@ -69,5 +80,15 @@ describe('directoryTree', () => {
 	it('should exclude the correct folders', () => {
 		const tree = dirtree('./test/test_data',{exclude: /another_dir/});
 		expect(tree).to.deep.equal(excludeTree);
+	});
+
+	it('should include attributes', () => {
+		const tree = dirtree('./test/test_data',{ attributes: ['mtimeMs', 'ctimeMs']});
+		tree.children.forEach((child) => {
+			if(child.type == 'file'){
+				expect(child).to.have.property('mtimeMs').at.least(100)
+				expect(child).to.have.property('ctimeMs').at.least(100)
+			}
+		})
 	});
 });
