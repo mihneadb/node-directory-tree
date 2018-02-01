@@ -30,6 +30,14 @@ You can also exclude paths from the tree using a regex:
 const dirTree = require('directory-tree');
 const filteredTree = dirTree('/some/path', {exclude:/some_path_to_exclude/});
 ```
+You can also specify which additional attributes you would like to be included about each file/directory:
+
+```js
+const dirTree = require('directory-tree');
+const filteredTree = dirTree('/some/path', {attributes:['name', 'mtime']});
+```
+
+The default attributes are `[name, size, extension, path]` for Files and `[name, size, path]` for Directories
 
 A callback function can be executed with each file that matches the extensions provided:
 
@@ -37,12 +45,22 @@ A callback function can be executed with each file that matches the extensions p
 const PATH = require('path');
 const dirTree = require('directory-tree');
 
-const tree = dirTree('./test/test_data', {extensions:/\.txt$/}, (item, PATH) => {
+const tree = dirTree('./test/test_data', {extensions:/\.txt$/}, (item, PATH, stats) => {
 	console.log(item);
 });
 ```
 
-The callback function takes the directory item (has path, name, size, and extension) and an instance of [node path](https://nodejs.org/api/path.html).
+The callback function takes the directory item (has path, name, size, and extension) and an instance of [node path](https://nodejs.org/api/path.html) and an instance of [node FS.stats](https://nodejs.org/api/fs.html#fs_class_fs_stats).
+
+You can also pass a callback function for directories:
+```js
+const PATH = require('path');
+const dirTree = require('directory-tree');
+
+const tree = dirTree('./test/test_data', {extensions:/\.txt$/}, null, (item, PATH, stats) => {
+	console.log(item);
+});
+```
 
 ## Result
 Given a directory structured like this:
