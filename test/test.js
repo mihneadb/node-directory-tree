@@ -4,6 +4,7 @@ const expect = require('chai').expect;
 const dirtree = require('../lib/directory-tree');
 const testTree = require('./fixture.js');
 const excludeTree =  require('./fixtureExclude.js')
+const excludeTree2 =  require('./fixtureMultipleExclude.js')
 
 
 describe('directoryTree', () => {
@@ -52,7 +53,7 @@ describe('directoryTree', () => {
 	});
 
 	it('should return the correct exact result', () => {
-		const tree = dirtree('./test/test_data');
+		const tree = dirtree('./test/test_data', {normalizePath: true});
 		expect(tree).to.deep.equal(testTree);
 	});
 
@@ -67,7 +68,12 @@ describe('directoryTree', () => {
 	})
 
 	it('should exclude the correct folders', () => {
-		const tree = dirtree('./test/test_data',{exclude: /another_dir/});
+		const tree = dirtree('./test/test_data',{exclude: /another_dir/, normalizePath: true});
 		expect(tree).to.deep.equal(excludeTree);
+	});
+
+	it('should exclude multiple folders', () => {
+		const tree = dirtree('./test/test_data', {exclude: [/another_dir/, /some_dir_2/], normalizePath: true});
+		expect(tree).to.deep.equal(excludeTree2);
 	});
 });
