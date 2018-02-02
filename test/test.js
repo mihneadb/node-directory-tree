@@ -83,11 +83,11 @@ describe('directoryTree', () => {
 	});
 
 	it('should include attributes', () => {
-		const tree = dirtree('./test/test_data',{ attributes: ['mtimeMs', 'ctimeMs']});
+		const tree = dirtree('./test/test_data',{ attributes: ['mtime', 'ctime']});
 		tree.children.forEach((child) => {
 			if(child.type == 'file'){
-				expect(child).to.have.property('mtimeMs').at.least(100)
-				expect(child).to.have.property('ctimeMs').at.least(100)
+				expect(child).to.have.property('mtime')
+				expect(child).to.have.property('ctime')
 			}
 		})
 	});
