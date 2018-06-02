@@ -47,7 +47,9 @@ The callback function takes the directory item (has path, name, size, and extens
 ## Options
 
 `exclude` : `RegExp|RegExp[]` - A RegExp or an array of RegExp to test for exlusion of directories.
+
 `extensions` : `RegExp` - A RegExp to test for exclusion of files with the matching extension.
+
 `normalizePath` : `Boolean` - If true, windows style paths will be normalized to unix style pathes (/ instead of \\).
 
 ## Result
