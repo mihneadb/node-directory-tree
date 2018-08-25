@@ -5,6 +5,7 @@
 Creates a JavaScript object representing a directory tree.
 
 ## Install
+
 ```bash
 $ npm install directory-tree
 ```
@@ -12,34 +13,47 @@ $ npm install directory-tree
 ## Usage
 
 ```js
-const dirTree = require('directory-tree');
-const tree = dirTree('/some/path');
+const dirTree = require("directory-tree");
+const tree = dirTree("/some/path");
 ```
 
 And you can also filter by an extensions regex:
 This is useful for including only certain types of files.
 
 ```js
-const dirTree = require('directory-tree');
-const filteredTree = dirTree('/some/path', {extensions:/\.txt/});
+const dirTree = require("directory-tree");
+const filteredTree = dirTree("/some/path", { extensions: /\.txt/ });
+```
+
+Example for filtering multiple extensions with Regex.
+
+```js
+const dirTree = require("directory-tree");
+const filteredTree = dirTree("/some/path", {
+  extensions: /\.(md|js|html|java|py|rb)$/
+});
 ```
 
 You can also exclude paths from the tree using a regex:
 
 ```js
-const dirTree = require('directory-tree');
-const filteredTree = dirTree('/some/path', {exclude:/some_path_to_exclude/});
+const dirTree = require("directory-tree");
+const filteredTree = dirTree("/some/path", { exclude: /some_path_to_exclude/ });
 ```
 
 A callback function can be executed with each file that matches the extensions provided:
 
 ```js
-const PATH = require('path');
-const dirTree = require('directory-tree');
+const PATH = require("path");
+const dirTree = require("directory-tree");
 
-const tree = dirTree('./test/test_data', {extensions:/\.txt$/}, (item, PATH) => {
-	console.log(item);
-});
+const tree = dirTree(
+  "./test/test_data",
+  { extensions: /\.txt$/ },
+  (item, PATH) => {
+    console.log(item);
+  }
+);
 ```
 
 The callback function takes the directory item (has path, name, size, and extension) and an instance of [node path](https://nodejs.org/api/path.html).
@@ -53,6 +67,7 @@ The callback function takes the directory item (has path, name, size, and extens
 `normalizePath` : `Boolean` - If true, windows style paths will be normalized to unix style pathes (/ instead of \\).
 
 ## Result
+
 Given a directory structured like this:
 
 ```
@@ -131,7 +146,9 @@ photos
   ]
 }
 ```
+
 ## Note
+
 Device, FIFO and socket files are ignored.
 
 Files to which the user does not have permissions are included in the directory
