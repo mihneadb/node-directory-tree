@@ -40,11 +40,12 @@ You can also exclude paths from the tree using a regex:
 const dirTree = require("directory-tree");
 const filteredTree = dirTree("/some/path", { exclude: /some_path_to_exclude/ });
 ```
+
 You can also specify which additional attributes you would like to be included about each file/directory:
 
 ```js
 const dirTree = require('directory-tree');
-const filteredTree = dirTree('/some/path', {attributes:['name', 'mtime']});
+const filteredTree = dirTree('/some/path', {attributes:['mode', 'mtime']});
 ```
 
 The default attributes are `[name, size, extension, path]` for Files and `[name, size, path]` for Directories
@@ -75,14 +76,10 @@ const tree = dirTree('./test/test_data', {extensions:/\.txt$/}, null, (item, PAT
 ## Options
 
 `exclude` : `RegExp|RegExp[]` - A RegExp or an array of RegExp to test for exlusion of directories.
-`extensions` : `RegExp` - A RegExp to test for exclusion of files with the matching extension.
-`normalizePath` : `Boolean` - If true, windows style paths will be normalized to unix style pathes (/ instead of \\).
-
-## Options
-
-`exclude` : `RegExp|RegExp[]` - A RegExp or an array of RegExp to test for exlusion of directories.
 
 `extensions` : `RegExp` - A RegExp to test for exclusion of files with the matching extension.
+
+`attributes` : `string[]` - Array of [FS.stats](https://nodejs.org/api/fs.html#fs_class_fs_stats) attributes.
 
 `normalizePath` : `Boolean` - If true, windows style paths will be normalized to unix style pathes (/ instead of \\).
 
