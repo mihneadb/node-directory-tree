@@ -17,4 +17,4 @@ export declare class DirectoryTree {
   extension?: string;
 }
 
-export default directoryTree;
+export = directoryTree;
