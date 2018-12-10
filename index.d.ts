@@ -8,7 +8,7 @@ declare const directoryTree: (
   onEachFile?: (item: DirectoryTree, path: string) => void
 ) => DirectoryTree;
 
-export declare class DirectoryTree {
+declare class DirectoryTree {
   path: string;
   name: string;
   size: number;
