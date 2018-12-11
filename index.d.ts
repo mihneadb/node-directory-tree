@@ -19,6 +19,10 @@ export declare class DirectoryTree {
   extension?: string;
 }
 
+/*
+ * Node.js fs.Stats from
+ * https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/node/index.d.ts#L3696
+*/
 export class Stats {
   isFile(): boolean;
   isDirectory(): boolean;
