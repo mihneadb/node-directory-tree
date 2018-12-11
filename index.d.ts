@@ -10,7 +10,7 @@ declare const directoryTree: (
   onEachDirectory?: (item: DirectoryTree, path: string, stats: Stats) => void,
 ) => DirectoryTree;
 
-export declare class DirectoryTree {
+declare class DirectoryTree {
   path: string;
   name: string;
   size: number;
@@ -23,7 +23,7 @@ export declare class DirectoryTree {
  * Node.js fs.Stats from
  * https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/node/index.d.ts#L3696
 */
-export class Stats {
+declare class Stats {
   isFile(): boolean;
   isDirectory(): boolean;
   isBlockDevice(): boolean;
@@ -51,4 +51,4 @@ export class Stats {
   birthtime: Date;
 }
 
-export default directoryTree;
+export = directoryTree;
