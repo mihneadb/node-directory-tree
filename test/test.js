@@ -33,14 +33,14 @@ describe('directoryTree', () => {
 	});
 
 	it('should execute a callback function for each directory', () => {
-		let number_of_files =  1;
+		let number_of_directories = 4;
 		let callback_executed_times = 0;
 
 		const tree = dirtree('./test/test_data', null, null, function(item, PATH) {
 			callback_executed_times++;
 		});
 
-		expect(callback_executed_times).to.equal(number_of_files);
+		expect(callback_executed_times).to.equal(number_of_directories);
 	});
 
 	it('should execute a callback function for each file with specified extensions', () => {
