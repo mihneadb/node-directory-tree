@@ -10,9 +10,9 @@ declare function directoryTree(
     onEachDirectory?: (item: DirectoryTree.DirectoryTree, path: string, stats: DirectoryTree.Stats) => void,
 ): DirectoryTree.DirectoryTree;
 
-export as namespace DirectoryTree
+export as namespace directoryTree
 
-declare namespace DirectoryTree {
+declare namespace directoryTree {
     export class DirectoryTree {
         path: string;
         name: string;
