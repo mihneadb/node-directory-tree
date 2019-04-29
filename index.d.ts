@@ -6,13 +6,13 @@ declare function directoryTree(
         attributes?: string[];
         extensions?: RegExp;
     },
-    onEachFile?: (item: DirectoryTree.DirectoryTree, path: string, stats: DirectoryTree.Stats) => void,
-    onEachDirectory?: (item: DirectoryTree.DirectoryTree, path: string, stats: DirectoryTree.Stats) => void,
-): DirectoryTree.DirectoryTree;
+    onEachFile?: (item: directoryTree.DirectoryTree, path: string, stats: directoryTree.Stats) => void,
+    onEachDirectory?: (item: directoryTree.DirectoryTree, path: string, stats: directoryTree.Stats) => void,
+): directoryTree.DirectoryTree;
 
 export as namespace directoryTree
 
-declare namespace directoryTree {
+declare namespace DirectoryTree {
     export class DirectoryTree {
         path: string;
         name: string;
