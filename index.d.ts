@@ -12,7 +12,7 @@ declare function directoryTree(
 
 export as namespace directoryTree
 
-declare namespace DirectoryTree {
+declare namespace directoryTree {
     export class DirectoryTree {
         path: string;
         name: string;
