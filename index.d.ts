@@ -5,6 +5,7 @@ declare function directoryTree(
         exclude?: RegExp | RegExp[];
         attributes?: string[];
         extensions?: RegExp;
+        depth?: number;
     },
     onEachFile?: (item: directoryTree.DirectoryTree, path: string, stats: directoryTree.Stats) => void,
     onEachDirectory?: (item: directoryTree.DirectoryTree, path: string, stats: directoryTree.Stats) => void,
