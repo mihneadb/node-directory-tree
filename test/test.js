@@ -5,6 +5,7 @@ const dirtree = require('../lib/directory-tree');
 const testTree = require('./fixture.js');
 const excludeTree =  require('./fixtureExclude.js')
 const excludeTree2 =  require('./fixtureMultipleExclude.js')
+const depthTree = require('./fixtureDepth.js');
 
 
 describe('directoryTree', () => {
@@ -99,4 +100,8 @@ describe('directoryTree', () => {
 		})
 	});
 
+	it('should not go further than specified depth', () => {
+		const tree = dirtree('./test/test_data',{ depth:1 });
+		expect(tree).to.deep.equal(testTree);
+	});
 });
