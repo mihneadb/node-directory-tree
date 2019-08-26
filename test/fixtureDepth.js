@@ -26,6 +26,7 @@ tree = {
           "path": "test/test_data/some_dir/another_dir",
           "name": "another_dir",
           "type": "directory",
+          "children": [],
           "size": 0
         },
         {
@@ -43,7 +44,7 @@ tree = {
           "extension": ".txt"
         }
       ],
-      "size": 7536
+      "size": 3768
     },
     {
       "path": "test/test_data/some_dir_2",
@@ -61,7 +62,7 @@ tree = {
       "size": 0
     }
   ],
-  "size": 11304
+  "size": 7536
 }
 
 module.exports = tree;

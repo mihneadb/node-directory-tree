@@ -102,6 +102,6 @@ describe('directoryTree', () => {
 
 	it('should not go further than specified depth', () => {
 		const tree = dirtree('./test/test_data',{ depth:1 });
-		expect(tree).to.deep.equal(testTree);
+		expect(tree).to.deep.equal(depthTree);
 	});
 });
