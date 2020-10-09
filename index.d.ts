@@ -3,7 +3,7 @@ declare function directoryTree(
     options?: {
         normalizePath?: boolean;
         exclude?: RegExp | RegExp[];
-        attributes?: string[];
+        attributes?: (keyof directoryTree.Stats)[];
         extensions?: RegExp;
     },
     onEachFile?: (item: directoryTree.DirectoryTree, path: string, stats: directoryTree.Stats) => void,
