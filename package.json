@@ -1,6 +1,6 @@
 {
   "name": "directory-tree",
-  "version": "2.2.5",
+  "version": "2.2.6",
   "description": "Convert a directory tree to a JS object.",
   "repository": {
     "type": "git",
