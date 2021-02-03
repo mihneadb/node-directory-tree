@@ -5,7 +5,7 @@ const dirtree = require('../lib/directory-tree');
 const testTree = require('./fixture.js');
 const excludeTree =  require('./fixtureExclude.js')
 const excludeTree2 =  require('./fixtureMultipleExclude.js')
-
+const depthTestTree = require('./fixtureDepth.js')
 
 describe('directoryTree', () => {
 
@@ -17,12 +17,12 @@ describe('directoryTree', () => {
 	it('should list the children in a directory', () => {
 		const tree = dirtree('./test/test_data', {extensions:/\.txt$/});
 
-		// 4 including the empty `some_dir_2`.
-		expect(tree.children.length).to.equal(4);
+		// 5 including the empty `some_dir_2`.
+		expect(tree.children.length).to.equal(5);
 	});
 
 	it('should execute a callback function for each file with no specified extensions', () => {
-		let number_of_files =  7;
+		let number_of_files = 8;
 		let callback_executed_times = 0;
 
 		const tree = dirtree('./test/test_data', null, function(item, PATH) {
@@ -33,7 +33,7 @@ describe('directoryTree', () => {
 	});
 
 	it('should execute a callback function for each directory', () => {
-		let number_of_directories = 4;
+		let number_of_directories = 9;
 		let callback_executed_times = 0;
 
 		const tree = dirtree('./test/test_data', null, null, function(item, PATH) {
@@ -79,12 +79,12 @@ describe('directoryTree', () => {
 	})
 
 	it('should exclude the correct folders', () => {
-		const tree = dirtree('./test/test_data',{exclude: /another_dir/, normalizePath: true});
+		const tree = dirtree('./test/test_data',{exclude: [/another_dir/, /depth1/], normalizePath: true});
 		expect(tree).to.deep.equal(excludeTree);
 	});
 
 	it('should exclude multiple folders', () => {
-		const tree = dirtree('./test/test_data', {exclude: [/another_dir/, /some_dir_2/], normalizePath: true});
+		const tree = dirtree('./test/test_data', {exclude: [/another_dir/, /some_dir_2/, /depth1/], normalizePath: true});
 		expect(tree).to.deep.equal(excludeTree2);
 
 	});
@@ -99,4 +99,8 @@ describe('directoryTree', () => {
 		})
 	});
 
+	it('should return exact', () => {
+		const tree = dirtree('./test/test_data/depth1', { recursionDepth: 4 });
+		expect(tree).to.deep.equal(depthTestTree);
+	});
 });
