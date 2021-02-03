@@ -9,7 +9,6 @@ declare function directoryTree(
     },
     onEachFile?: (item: directoryTree.DirectoryTree, path: string, stats: directoryTree.Stats) => void,
     onEachDirectory?: (item: directoryTree.DirectoryTree, path: string, stats: directoryTree.Stats) => void,
-    currentDepth: int,
 ): directoryTree.DirectoryTree;
 
 export as namespace directoryTree
