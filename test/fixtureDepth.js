@@ -1,25 +1,31 @@
 tree = {
-  "path": "./test/test_data/depth1",
-  "name": "depth1",
+  "path": "./test/depth_test",
+  "name": "depth_test",
   "children": [
     {
-      "path": "test/test_data/depth1/depth2",
+      "path": "test/depth_test/depth1_file",
+      "name": "depth1_file",
+      "size": 0,
+      "extension": "",
+      "type": "file"
+    },
+    {
+      "path": "test/depth_test/depth2",
       "name": "depth2",
       "children": [
         {
-          "path": "test/test_data/depth1/depth2/depth3",
-          "name": "depth3",
-          "children": [
-            {
-              "path": "test/test_data/depth1/depth2/depth3/depth4",
-              "name": "depth4",
-              "children": [],
-              "size": 0,
-              "type": "directory"
-            }
-          ],
+          "path": "test/depth_test/depth2/depth2_file",
+          "name": "depth2_file",
           "size": 0,
-          "type": "directory"
+          "extension": "",
+          "type": "file"
+        },
+        {
+          "path": "test/depth_test/depth2/depth3",
+          "name": "depth3",
+          "children": [],
+          "type": "directory",
+          "size": null
         }
       ],
       "size": 0,
@@ -29,5 +35,6 @@ tree = {
   "size": 0,
   "type": "directory"
 }
+
 
 module.exports = tree;
