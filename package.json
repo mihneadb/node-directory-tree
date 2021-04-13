@@ -19,7 +19,7 @@
   "homepage": "https://github.com/mihneadb/node-directory-tree",
   "devDependencies": {
     "chai": "^2.3.0",
-    "mocha": "^8.3.2"
+    "mocha": "^8.3.1"
   },
   "engines": {
     "node": ">=4.2"
