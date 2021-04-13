@@ -17,10 +17,9 @@
     "url": "https://github.com/mihneadb/node-directory-tree/issues"
   },
   "homepage": "https://github.com/mihneadb/node-directory-tree",
-  "dependencies": {},
   "devDependencies": {
     "chai": "^2.3.0",
-    "mocha": "^5.2.0"
+    "mocha": "^8.3.2"
   },
   "engines": {
     "node": ">=4.2"
