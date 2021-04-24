@@ -75,7 +75,7 @@ const tree = dirTree('./test/test_data', {extensions:/\.txt$/}, null, (item, PAT
 
 ## Options
 
-`exclude` : `RegExp|RegExp[]` - A RegExp or an array of RegExp to test for exlusion of directories.
+`exclude` : `RegExp|RegExp[]` - A RegExp or an array of RegExp to test for exclusion of directories.
 
 `extensions` : `RegExp` - A RegExp to test for exclusion of files with the matching extension.
 
