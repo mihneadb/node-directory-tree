@@ -17,12 +17,14 @@ declare namespace directoryTree {
     type: "directory" | "file";
     children ? : DirectoryTree[];
     extension?: string;
+    isSymbolicLink?: boolean;
   }
   export interface DirectoryTreeOptions {
     normalizePath ? : boolean;
     exclude ? : RegExp | RegExp[];
     attributes ? : (keyof directoryTree.Stats)[];
     extensions ? : RegExp;
+    followSymlink ? : boolean;
   }
   export type DirectoryTreeCallback = (item: DirectoryTree, path: string, stats: Stats) => void;
 }
