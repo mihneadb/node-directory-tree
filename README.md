@@ -57,7 +57,7 @@ const PATH = require('path');
 const dirTree = require('directory-tree');
 
 const tree = dirTree('./test/test_data', {extensions:/\.txt$/}, (item, PATH, stats) => {
-	console.log(item);
+  console.log(item);
 });
 ```
 
@@ -69,7 +69,7 @@ const PATH = require('path');
 const dirTree = require('directory-tree');
 
 const tree = dirTree('./test/test_data', {extensions:/\.txt$/}, null, (item, PATH, stats) => {
-	console.log(item);
+  console.log(item);
 });
 ```
 
