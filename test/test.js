@@ -3,19 +3,20 @@
 const expect = require('chai').expect;
 const dirtree = require('../lib/directory-tree');
 const testTree = require('./fixture.js');
-const excludeTree =  require('./fixtureExclude.js')
-const excludeTree2 =  require('./fixtureMultipleExclude.js')
+const excludeTree = require('./fixtureExclude');
+const excludeTree2 = require('./fixtureMultipleExclude');
+const symlinkTree = require('./fixtureSymlink');
 
 
 describe('directoryTree', () => {
 
   it('should return an Object', () => {
-    const tree = dirtree('./test/test_data', {extensions:/\.txt$/});
+    const tree = dirtree('./test/test_data', {extensions:/\.txt$/, followSymlinks: false });
     expect(tree).to.be.an('object');
   });
 
   it('should list the children in a directory', () => {
-    const tree = dirtree('./test/test_data', {extensions:/\.txt$/});
+    const tree = dirtree('./test/test_data', {extensions:/\.txt$/, followSymlinks: false });
 
     // 4 including the empty `some_dir_2`.
     expect(tree.children.length).to.equal(4);
@@ -25,7 +26,7 @@ describe('directoryTree', () => {
     let number_of_files =  7;
     let callback_executed_times = 0;
 
-    const tree = dirtree('./test/test_data', null, function(item, PATH) {
+    const tree = dirtree('./test/test_data', { followSymlinks: false }, function(item, PATH) {
       callback_executed_times++;
     });
 
@@ -36,7 +37,7 @@ describe('directoryTree', () => {
     let number_of_directories = 4;
     let callback_executed_times = 0;
 
-    const tree = dirtree('./test/test_data', null, null, function(item, PATH) {
+    const tree = dirtree('./test/test_data', { followSymlinks: false }, null, function(item, PATH) {
       callback_executed_times++;
     });
 
@@ -47,7 +48,7 @@ describe('directoryTree', () => {
     let number_of_files =  6;
     let callback_executed_times = 0;
 
-    const tree = dirtree('./test/test_data', {extensions:/\.txt$/}, function(item, PATH) {
+    const tree = dirtree('./test/test_data', {extensions:/\.txt$/, followSymlinks: false }, function(item, PATH) {
       callback_executed_times++;
     });
     expect(callback_executed_times).to.equal(number_of_files);
@@ -64,7 +65,7 @@ describe('directoryTree', () => {
   });
 
   it('should return the correct exact result', () => {
-    const tree = dirtree('./test/test_data', {normalizePath: true});
+    const tree = dirtree('./test/test_data', {normalizePath: true, followSymlinks: false });
     expect(tree).to.deep.equal(testTree);
   });
 
@@ -79,18 +80,18 @@ describe('directoryTree', () => {
   })
 
   it('should exclude the correct folders', () => {
-    const tree = dirtree('./test/test_data',{exclude: /another_dir/, normalizePath: true});
+    const tree = dirtree('./test/test_data',{exclude: /another_dir/, normalizePath: true, followSymlinks: false});
     expect(tree).to.deep.equal(excludeTree);
   });
 
   it('should exclude multiple folders', () => {
-    const tree = dirtree('./test/test_data', {exclude: [/another_dir/, /some_dir_2/], normalizePath: true});
+    const tree = dirtree('./test/test_data', {exclude: [/another_dir/, /some_dir_2/], normalizePath: true, followSymlinks: false});
     expect(tree).to.deep.equal(excludeTree2);
 
   });
 
   it('should include attributes', () => {
-    const tree = dirtree('./test/test_data',{ attributes: ['mtime', 'ctime']});
+    const tree = dirtree('./test/test_data',{ attributes: ['mtime', 'ctime'], followSymlinks: false});
     tree.children.forEach((child) => {
       if(child.type == 'file'){
         expect(child).to.have.property('mtime')
@@ -98,5 +99,10 @@ describe('directoryTree', () => {
       }
     })
   });
+
+  it('should follow symlinks', () => {
+    const tree = dirtree('./test/test_data', {normalizePath: true, followSymlinks: true });
+    expect(tree).to.deep.equal(symlinkTree);
+  })
 
 });
