@@ -22,7 +22,7 @@ declare namespace directoryTree {
   export interface DirectoryTreeOptions {
     normalizePath ? : boolean;
     exclude ? : RegExp | RegExp[];
-    attributes ? : (keyof directoryTree.Stats)[];
+    attributes ? : (keyof Stats)[];
     extensions ? : RegExp;
     followSymlink ? : boolean;
   }
