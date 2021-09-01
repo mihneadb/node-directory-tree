@@ -186,3 +186,4 @@ Make sure you have the dev dependencies installed (e.g. `npm install .`)
 
 This project requires at least Node v4.2.
 Check out version `0.1.1` if you need support for older versions of Node.
+
