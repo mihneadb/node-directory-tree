@@ -48,7 +48,7 @@ const dirTree = require('directory-tree');
 const filteredTree = dirTree('/some/path', {attributes:['mode', 'mtime']});
 ```
 
-The default attributes are `[name, size, extension, path]` for Files and `[name, size, path]` for Directories
+The default attributes are `[name, path]` for Files and `[name, path, children]` for Directories
 
 A callback function can be executed with each file that matches the extensions provided:
 
@@ -98,7 +98,7 @@ photos
         └── snowboard.jpg
 ```
 
-`directory-tree` will return this JS object:
+`directory-tree` with `attributes: ["size", "type", "extension"]`  will return this JS object:
 
 ```json
 {
