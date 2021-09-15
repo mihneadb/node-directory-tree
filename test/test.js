@@ -55,7 +55,7 @@ describe('directoryTree', () => {
   });
 
   it('should display the size of a directory (summing up the children)', () => {
-    const tree = dirtree('./test/test_data', {extensions:/\.txt$/});
+    const tree = dirtree('./test/test_data', {extensions:/\.txt$/, attributes: ['size']});
     expect(tree.size).to.be.above(11000);
   });
 
@@ -65,7 +65,7 @@ describe('directoryTree', () => {
   });
 
   it('should return the correct exact result', () => {
-    const tree = dirtree('./test/test_data', {normalizePath: true, followSymlinks: false });
+    const tree = dirtree('./test/test_data', {normalizePath: true, followSymlinks: false, attributes: ['size','type','extension'] });
     expect(tree).to.deep.equal(testTree);
   });
 
@@ -80,12 +80,12 @@ describe('directoryTree', () => {
   })
 
   it('should exclude the correct folders', () => {
-    const tree = dirtree('./test/test_data',{exclude: /another_dir/, normalizePath: true, followSymlinks: false});
+    const tree = dirtree('./test/test_data',{exclude: /another_dir/, normalizePath: true, followSymlinks: false, attributes: ['size','type','extension']});
     expect(tree).to.deep.equal(excludeTree);
   });
 
   it('should exclude multiple folders', () => {
-    const tree = dirtree('./test/test_data', {exclude: [/another_dir/, /some_dir_2/], normalizePath: true, followSymlinks: false});
+    const tree = dirtree('./test/test_data', {exclude: [/another_dir/, /some_dir_2/], normalizePath: true, followSymlinks: false, attributes: ['size','type','extension']});
     expect(tree).to.deep.equal(excludeTree2);
 
   });
@@ -101,7 +101,7 @@ describe('directoryTree', () => {
   });
 
   it('should follow symlinks', () => {
-    const tree = dirtree('./test/test_data', {normalizePath: true, followSymlinks: true });
+    const tree = dirtree('./test/test_data', {normalizePath: true, followSymlinks: true, attributes: ['size','type','extension'] });
     expect(tree).to.deep.equal(symlinkTree);
   })
 
