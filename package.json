@@ -17,10 +17,15 @@
     "url": "https://github.com/mihneadb/node-directory-tree/issues"
   },
   "homepage": "https://github.com/mihneadb/node-directory-tree",
+  "dependencies": {
+    "command-line-args": "^5.2.0",
+    "command-line-usage": "^6.1.1"
+  },
   "devDependencies": {
     "chai": "^2.3.0",
     "mocha": "^8.3.2"
   },
+  "bin": "bin/index.js",
   "engines": {
     "node": ">=10.0"
   },
