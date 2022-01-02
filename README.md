@@ -83,6 +83,8 @@ const tree = dirTree('./test/test_data', {extensions:/\.txt$/}, null, (item, PAT
 
 `normalizePath` : `Boolean` - If true, windows style paths will be normalized to unix style pathes (/ instead of \\).
 
+`depth` : `number` - If presented, reads so many nested dirs as specified in argument. Usage of size attribute with depth option is prohibited.
+
 ## Result
 
 Given a directory structured like this:
