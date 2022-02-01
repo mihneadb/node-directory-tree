@@ -3,6 +3,9 @@
 const expect = require('chai').expect;
 const dirtree = require('../lib/directory-tree');
 const testTree = require('./fixture.js');
+const testTreeZeroDepth = require('./depth/fixtureZeroDepth.js');
+const testTreeFirstDepth = require('./depth/fixtureFirstDepth.js');
+const testTreeSecondDepth = require('./depth/fixtureSecondDepth.js');
 const excludeTree = require('./fixtureExclude');
 const excludeTree2 = require('./fixtureMultipleExclude');
 const symlinkTree = require('./fixtureSymlink');
@@ -103,6 +106,27 @@ describe('directoryTree', () => {
   it('should follow symlinks', () => {
     const tree = dirtree('./test/test_data', {normalizePath: true, followSymlinks: true, attributes: ['size','type','extension'] });
     expect(tree).to.deep.equal(symlinkTree);
+  })
+
+  it('should respect "depth = 0" argument', () => {
+    const tree = dirtree('./test/test_data', {depth: 0, normalizePath: true, followSymlinks: false, attributes: ['type','extension'] });
+    expect(tree).to.deep.equal(testTreeZeroDepth);
+  })
+
+  it('should respect "depth = 1" argument', () => {
+    const tree = dirtree('./test/test_data', {depth: 1, normalizePath: true, followSymlinks: false, attributes: ['type','extension'] });
+    expect(tree).to.deep.equal(testTreeFirstDepth);
+  })
+
+  it('should respect "depth = 2" argument', () => {
+    const tree = dirtree('./test/test_data', {depth: 2, normalizePath: true, followSymlinks: false, attributes: ['type','extension'] });
+    expect(tree).to.deep.equal(testTreeSecondDepth);
+  })
+
+  it('should throw error when combines size attribute with depth option', () => {
+    expect(
+        dirtree.bind(dirtree, './test/test_data', {depth: 2, normalizePath: true, followSymlinks: false, attributes: ['size', 'type','extension'] })
+    ).to.throw('usage of size attribute with depth option is prohibited');
   })
 
 });

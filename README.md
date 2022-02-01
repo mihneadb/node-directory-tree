@@ -83,6 +83,8 @@ const tree = dirTree('./test/test_data', {extensions:/\.txt$/}, null, (item, PAT
 
 `normalizePath` : `Boolean` - If true, windows style paths will be normalized to unix style pathes (/ instead of \\).
 
+`depth` : `number` - If presented, reads so many nested dirs as specified in argument. Usage of size attribute with depth option is prohibited.
+
 ## Result
 
 Given a directory structured like this:
@@ -186,3 +188,22 @@ Make sure you have the dev dependencies installed (e.g. `npm install .`)
 
 This project requires at least Node v4.2.
 Check out version `0.1.1` if you need support for older versions of Node.
+
+## CLI usage
+
+You can use script directly from command line for generating json data.
+
+```bash
+$ npx directory-tree --help
+```
+```bash
+$ npx directory-tree --path /Users/user/target --attributes type,extension --pretty -o ./xz.json --depth 1 
+```
+
+### Available options
+-p, --path string      🗂 The input folder to process. Required.                                     
+-e, --exclude string   🐒 Exclude some folders from processing by regexp string. Ex -e "test_data/some_dir$|js|.DS_Store"                                            
+-o, --output string    📝 Put result into file provided by this options. Overwrites if exists.       
+-d, --depth number     ☞ Reads dirs in deep as specified. Usage of size attribute with depth option is prohibited.                                                                
+--attributes string    ℹ️ Grab file attributes. Example: --attributes size,type,extension. Usage of size attribute with depth option is prohibited                                
+--pretty               💎 Json pretty print
