@@ -18,6 +18,7 @@ declare namespace directoryTree {
     children ? : DirectoryTree[];
     extension?: string;
     isSymbolicLink?: boolean;
+    custom: { [key: string]: any };
   }
   export interface DirectoryTreeOptions {
     normalizePath ? : boolean;

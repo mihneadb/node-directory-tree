@@ -166,6 +166,33 @@ photos
 }
 ```
 
+## Adding custom fields
+You can easily extend a `DirectoryTree` object with custom fields by adding them to the custom field.
+For example add an `id` based on the path of a `DirectoryTree` object for each directory and file like so:
+```
+import { createHash } from 'crypto';
+import * as directoryTree from 'directory-tree';
+import { DirectoryTree, DirectoryTreeOptions, DirectoryTreeCallback } from 'directory-tree';
+
+const callback: DirectoryTreeCallback = (
+            item: DirectoryTree,
+            path: string
+        ) => {
+            item.custom.id = createHash('sha1').update(path).digest('base64');
+        };
+
+const dirTree: DirectoryTree & { id?: string } = directoryTree(
+    "<your-directory-path>",
+    {},
+    callback,
+    callback
+);
+
+// to explore the object with the new custom fields
+console.log(JSON.stringify(dirTree, null, 2));
+
+```
+
 ## Note
 
 Device, FIFO and socket files are ignored.
