@@ -13,6 +13,10 @@ const symlinkTree = require('./fixtureSymlink');
 
 describe('directoryTree', () => {
 
+  it('should not crash with empty options', () => {
+    const tree = dirtree('./test/test_data');
+  });
+
   it('should return an Object', () => {
     const tree = dirtree('./test/test_data', {extensions:/\.txt$/, followSymlinks: false });
     expect(tree).to.be.an('object');
