@@ -25,7 +25,7 @@ declare namespace directoryTree {
     exclude ? : RegExp | RegExp[];
     attributes ? : (keyof Stats | "type" | "extension")[];
     extensions ? : RegExp;
-    followSymlink ? : boolean;
+    followSymlinks ? : boolean;
     depth ? : number;
   }
   export type DirectoryTreeCallback = (item: DirectoryTree, path: string, stats: Stats) => void;
