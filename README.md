@@ -178,7 +178,7 @@ const callback: DirectoryTreeCallback = (
             item: DirectoryTree,
             path: string
         ) => {
-            item.custom.id = createHash('sha1').update(path).digest('base64');
+            item.custom = {id: createHash('sha1').update(path).digest('base64')};
         };
 
 const dirTree: DirectoryTree & { id?: string } = directoryTree(
