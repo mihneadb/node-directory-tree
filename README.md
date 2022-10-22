@@ -85,6 +85,8 @@ const tree = dirTree('./test/test_data', {extensions:/\.txt$/}, null, (item, PAT
 
 `depth` : `number` - If presented, reads so many nested dirs as specified in argument. Usage of size attribute with depth option is prohibited.
 
+`filesOnly` : `Boolean` - If true, a flat array containing all matched files will be returned instead of the full directory tree object.
+
 ## Result
 
 Given a directory structured like this:
