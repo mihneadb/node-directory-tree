@@ -7,7 +7,7 @@ interface IObj {
 declare function directoryTree<
   TCustomFile extends IObj = IObj,
   TCustomDir extends IObj = IObj,
-  TCustomResult = TCustomFile & TCustomDir
+  TCustomResult extends IObj = TCustomFile & TCustomDir
 >(
   path: string,
   options?: directoryTree.DirectoryTreeOptions,
