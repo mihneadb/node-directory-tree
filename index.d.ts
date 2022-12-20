@@ -1,13 +1,9 @@
 import { Stats } from "fs";
 
-interface IObj {
-  [key: string]: any;
-}
-
 declare function directoryTree<
-  TCustomFile extends IObj = IObj,
-  TCustomDir extends IObj = IObj,
-  TCustomResult extends IObj = TCustomFile & TCustomDir
+  TCustomFile extends Record<string, any> = Record<string, any>,
+  TCustomDir extends Record<string, any> = Record<string, any>,
+  TCustomResult extends Record<string, any> = TCustomFile & TCustomDir
 >(
   path: string,
   options?: directoryTree.DirectoryTreeOptions,
@@ -18,7 +14,7 @@ declare function directoryTree<
 export as namespace directoryTree;
 
 declare namespace directoryTree {
-  export interface DirectoryTree<C extends IObj = IObj> {
+  export interface DirectoryTree<C extends Record<string, any> = Record<string, any>> {
     path: string;
     name: string;
     size: number;
