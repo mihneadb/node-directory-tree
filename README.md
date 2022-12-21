@@ -1,5 +1,3 @@
-[![Build Status](https://api.travis-ci.com/mihneadb/node-directory-tree.svg?branch=master)](https://api.travis-ci.com/mihneadb/node-directory-tree.svg?branch=master)
-
 # directory-tree
 
 Creates a JavaScript object representing a directory tree.
