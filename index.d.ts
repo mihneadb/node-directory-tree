@@ -34,7 +34,7 @@ declare namespace directoryTree {
     depth?: number;
   }
 
-  export type DirectoryTreeCallback<TCustom extends IObj = IObj> = (
+  export type DirectoryTreeCallback<TCustom extends Record<string, any> = Record<string, any>> = (
     item: DirectoryTree<TCustom>,
     path: string,
     stats: Stats
