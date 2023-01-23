@@ -234,5 +234,5 @@ $ npx directory-tree --path /Users/user/target --attributes type,extension --pre
 --pretty               💎 Json pretty print
 
 ## Donate
-<a href="https://paypal.me/mihneadb/"><img src="blue.svg" height="40"></a>  
+<a href="https://paypal.me/mihneadb/"><img src="dark.svg" height="40"></a>  
 If this project is useful to you — or just feeling generous, consider buying me a beer. Cheers! :beers:
