@@ -232,3 +232,7 @@ $ npx directory-tree --path /Users/user/target --attributes type,extension --pre
 -d, --depth number     ☞ Reads dirs in deep as specified. Usage of size attribute with depth option is prohibited.                                                                
 --attributes string    ℹ️ Grab file attributes. Example: --attributes size,type,extension. Usage of size attribute with depth option is prohibited                                
 --pretty               💎 Json pretty print
+
+## Donate
+<a href="https://paypal.me/mihneadb/"><img src="blue.svg" height="40"></a>  
+If this project is useful to you — or just feeling generous, consider buying me a beer. Cheers! :beers:
