@@ -2,6 +2,8 @@
 
 Creates a JavaScript object representing a directory tree.
 
+This library gets [~100k downloads per week](http://npm-stats.org/#/directory-tree). If you find it useful, feel free to <a href="https://www.buymeacoffee.com/pXhXnSXSbN"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee.&emoji=&slug=pXhXnSXSbN&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
+
 ## Install
 
 ```bash
@@ -232,7 +234,3 @@ $ npx directory-tree --path /Users/user/target --attributes type,extension --pre
 -d, --depth number     ☞ Reads dirs in deep as specified. Usage of size attribute with depth option is prohibited.                                                                
 --attributes string    ℹ️ Grab file attributes. Example: --attributes size,type,extension. Usage of size attribute with depth option is prohibited                                
 --pretty               💎 Json pretty print
-
-## Donate
-<a href="https://paypal.me/mihneadb/"><img src="dark.svg" height="40"></a>  
-If this project is useful to you — or just feeling generous, consider buying me a beer. Cheers! :beers:
