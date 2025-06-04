@@ -22,7 +22,7 @@ declare namespace directoryTree {
     children?: DirectoryTree<C>[];
     extension?: string;
     isSymbolicLink?: boolean;
-    custom: C;
+    custom?: C;
   }
 
   export interface DirectoryTreeOptions {
