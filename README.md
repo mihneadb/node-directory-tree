@@ -81,7 +81,7 @@ const tree = dirTree('./test/test_data', {extensions:/\.txt$/}, null, (item, PAT
 
 `attributes` : `string[]` - Array of [FS.stats](https://nodejs.org/api/fs.html#fs_class_fs_stats) attributes.
 
-`normalizePath` : `Boolean` - If true, windows style paths will be normalized to unix style pathes (/ instead of \\).
+`normalizePath` : `Boolean` - If true, Windows style paths will be normalized to UNIX style paths (/ instead of \\).
 
 `depth` : `number` - If presented, reads so many nested dirs as specified in argument. Usage of size attribute with depth option is prohibited.
 
