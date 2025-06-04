@@ -211,11 +211,6 @@ $ npm test
 
 Make sure you have the dev dependencies installed (e.g. `npm install .`)
 
-## Node version
-
-This project requires Node.js `>=10`.
-Check out version `0.1.1` if you need support for Node `4.x`.
-
 ## CLI usage
 
 You can use script directly from command line for generating json data.
