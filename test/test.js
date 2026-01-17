@@ -127,10 +127,23 @@ describe('directoryTree', () => {
     expect(tree).to.deep.equal(testTreeSecondDepth);
   })
 
-  it('should throw error when combines size attribute with depth option', () => {
-    expect(
-        dirtree.bind(dirtree, './test/test_data', {depth: 2, normalizePath: true, followSymlinks: false, attributes: ['size', 'type','extension'] })
-    ).to.throw('usage of size attribute with depth option is prohibited');
+  it('should allow size attribute with depth option and set undefined for depth-limited directories', () => {
+    const tree = dirtree('./test/test_data', {depth: 1, normalizePath: true, followSymlinks: false, attributes: ['size', 'type','extension'] });
+
+    // Should not throw an error
+    expect(tree).to.exist;
+
+    // Files should have size
+    const fileNode = tree.children.find(child => child.type === 'file');
+    if (fileNode) {
+      expect(fileNode.size).to.be.a('number');
+    }
+
+    // Depth-limited directories should have size as undefined
+    const dirNode = tree.children.find(child => child.type === 'directory');
+    if (dirNode) {
+      expect(dirNode.size).to.be.undefined;
+    }
   })
 
 });
