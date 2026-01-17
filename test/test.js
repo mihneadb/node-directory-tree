@@ -148,4 +148,77 @@ describe('directoryTree', () => {
     expect(tree.size).to.be.undefined;
   })
 
+  it('should handle empty directory with depth and size attributes', () => {
+    const tree = dirtree('./test/test_data/some_dir_2', {depth: 0, normalizePath: true, attributes: ['size', 'type'] });
+
+    // Empty directory at depth limit should have undefined size
+    expect(tree).to.exist;
+    expect(tree.type).to.equal('directory');
+    expect(tree.size).to.be.undefined;
+    expect(tree.children).to.be.undefined;
+  })
+
+  it('should calculate sizes correctly for directory with only files at depth limit', () => {
+    const tree = dirtree('./test/test_data/some_dir/another_dir', {depth: 0, normalizePath: true, attributes: ['size', 'type'] });
+
+    // Directory at depth 0 (no children traversed) should have undefined size
+    expect(tree).to.exist;
+    expect(tree.type).to.equal('directory');
+    expect(tree.size).to.be.undefined;
+  })
+
+  it('should handle depth: 2 with size attribute correctly', () => {
+    const tree = dirtree('./test/test_data', {depth: 2, normalizePath: true, followSymlinks: false, attributes: ['size', 'type'] });
+
+    // Root should have undefined size (contains depth-limited directories)
+    expect(tree.size).to.be.undefined;
+
+    // some_dir should be present
+    const someDir = tree.children.find(child => child.name === 'some_dir');
+    expect(someDir).to.exist;
+    expect(someDir.type).to.equal('directory');
+
+    // some_dir should have children (depth 2 allows it)
+    expect(someDir.children).to.be.an('array');
+
+    // another_dir inside some_dir should be at depth limit
+    const anotherDir = someDir.children.find(child => child.name === 'another_dir');
+    expect(anotherDir).to.exist;
+    expect(anotherDir.type).to.equal('directory');
+
+    // another_dir is at depth limit (depth 2), so no children property
+    expect(anotherDir.children).to.be.undefined;
+    expect(anotherDir.size).to.be.undefined;
+
+    // Therefore some_dir also has undefined size (child has undefined)
+    expect(someDir.size).to.be.undefined;
+  })
+
+  it('should maintain backward compatibility: size without depth works as before', () => {
+    const tree = dirtree('./test/test_data', {normalizePath: true, followSymlinks: false, attributes: ['size', 'type'] });
+
+    // Without depth limit, all sizes should be numbers
+    expect(tree.size).to.be.a('number');
+    expect(tree.size).to.be.greaterThan(0);
+
+    // Check that directories have numeric sizes
+    const someDir = tree.children.find(child => child.name === 'some_dir' && child.type === 'directory');
+    expect(someDir).to.exist;
+    expect(someDir.size).to.be.a('number');
+    expect(someDir.size).to.be.greaterThan(0);
+
+    // Check that files have numeric sizes
+    const fileNode = tree.children.find(child => child.type === 'file');
+    expect(fileNode).to.exist;
+    expect(fileNode.size).to.be.a('number');
+    expect(fileNode.size).to.be.greaterThan(0);
+
+    // Verify nested directory also has numeric size
+    expect(someDir.children).to.be.an('array');
+    const anotherDir = someDir.children.find(child => child.name === 'another_dir');
+    expect(anotherDir).to.exist;
+    expect(anotherDir.size).to.be.a('number');
+    expect(anotherDir.size).to.be.greaterThan(0);
+  })
+
 });
