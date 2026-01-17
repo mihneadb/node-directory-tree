@@ -197,7 +197,7 @@ folder/
 ```
 
 The result will be:
-```json
+```js
 {
   "path": "folder",
   "name": "folder",
@@ -226,7 +226,9 @@ The result will be:
 }
 ```
 
-Note: `subfolder` has `size: undefined` because its children weren't traversed (depth limit), and the root `folder` also has `size: undefined` because it contains a child with an undefined size.
+**Note:** `subfolder` has `size: undefined` because its children weren't traversed (depth limit), and the root `folder` also has `size: undefined` because it contains a child with an undefined size.
+
+**JSON Serialization:** When serializing to JSON (e.g., `JSON.stringify(tree)`), `undefined` values are omitted from the output. Properties with `undefined` will not appear in the JSON string.
 
 ## Adding custom fields
 You can easily extend a `DirectoryTree` object with custom fields by adding them to the custom field.

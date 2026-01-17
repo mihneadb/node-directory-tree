@@ -132,18 +132,20 @@ describe('directoryTree', () => {
 
     // Should not throw an error
     expect(tree).to.exist;
+    expect(tree.children).to.be.an('array');
 
-    // Files should have size
+    // Files should have numeric size
     const fileNode = tree.children.find(child => child.type === 'file');
-    if (fileNode) {
-      expect(fileNode.size).to.be.a('number');
-    }
+    expect(fileNode, 'test data should contain at least one file').to.exist;
+    expect(fileNode.size).to.be.a('number');
 
     // Depth-limited directories should have size as undefined
     const dirNode = tree.children.find(child => child.type === 'directory');
-    if (dirNode) {
-      expect(dirNode.size).to.be.undefined;
-    }
+    expect(dirNode, 'test data should contain at least one directory').to.exist;
+    expect(dirNode.size).to.be.undefined;
+
+    // Root directory should also have undefined size (propagation)
+    expect(tree.size).to.be.undefined;
   })
 
 });
