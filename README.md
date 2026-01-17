@@ -83,7 +83,7 @@ const tree = dirTree('./test/test_data', {extensions:/\.txt$/}, null, (item, PAT
 
 `normalizePath` : `Boolean` - If true, Windows style paths will be normalized to UNIX style paths (/ instead of \\).
 
-`depth` : `number` - If presented, reads so many nested dirs as specified in argument. When used with the `size` attribute, directories at the depth limit will have `size: undefined` (see "Using size with depth" below).
+`depth` : `number` - Limits directory traversal to the specified depth level. When combined with `size`, directories at the depth limit have `size: undefined` (see "Using size with depth" below).
 
 ## Result
 
@@ -226,9 +226,7 @@ The result will be:
 }
 ```
 
-**Note:** `subfolder` has `size: undefined` because its children weren't traversed (depth limit), and the root `folder` also has `size: undefined` because it contains a child with an undefined size.
-
-**JSON Serialization:** When serializing to JSON (e.g., `JSON.stringify(tree)`), `undefined` values are omitted from the output. Properties with `undefined` will not appear in the JSON string.
+**Note:** When serializing to JSON (e.g., `JSON.stringify(tree)`), `undefined` values are omitted. Properties with `undefined` will not appear in the JSON string.
 
 ## Adding custom fields
 You can easily extend a `DirectoryTree` object with custom fields by adding them to the custom field.
@@ -290,6 +288,6 @@ $ npx directory-tree --path /Users/user/target --attributes type,extension --pre
 -p, --path string      🗂 The input folder to process. Required.                                     
 -e, --exclude string   🐒 Exclude some folders from processing by regexp string. Ex -e "test_data/some_dir$|js|.DS_Store"                                            
 -o, --output string    📝 Put result into file provided by this options. Overwrites if exists.       
--d, --depth number     ☞ Reads dirs in deep as specified. When used with size attribute, depth-limited directories will have size: undefined.
---attributes string    ℹ️ Grab file attributes. Example: --attributes size,type,extension. When used with depth, directories may have size: undefined.                                
+-d, --depth number     ☞ Limits directory traversal to specified depth. Combined with size, directories at depth limit have size: undefined.
+--attributes string    ℹ️ Grab file attributes. Example: --attributes size,type,extension. With depth, directories at limit have size: undefined.                                
 --pretty               💎 Json pretty print
