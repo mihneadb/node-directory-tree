@@ -17,7 +17,7 @@ declare namespace directoryTree {
   export interface DirectoryTree<C extends Record<string, any> = Record<string, any>> {
     path: string;
     name: string;
-    size: number;
+    size?: number;
     type: "directory" | "file";
     children?: DirectoryTree<C>[];
     extension?: string;

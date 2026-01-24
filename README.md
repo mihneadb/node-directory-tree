@@ -83,7 +83,7 @@ const tree = dirTree('./test/test_data', {extensions:/\.txt$/}, null, (item, PAT
 
 `normalizePath` : `Boolean` - If true, Windows style paths will be normalized to UNIX style paths (/ instead of \\).
 
-`depth` : `number` - If presented, reads so many nested dirs as specified in argument. Usage of size attribute with depth option is prohibited.
+`depth` : `number` - Limits directory traversal to the specified depth level. When combined with `size`, directories at the depth limit have `size: undefined` (see "Using size with depth" below).
 
 ## Result
 
@@ -166,6 +166,68 @@ photos
 }
 ```
 
+## Using size with depth
+
+The `size` attribute can be used together with the `depth` option, but with an important caveat:
+
+**When depth limiting is active:**
+- **Files** always have accurate sizes
+- **Directories at the depth limit** (whose children are not traversed) will have `size: undefined`
+- **Parent directories** containing depth-limited directories will also have `size: undefined`
+
+This is because directory sizes are calculated by recursively summing all child sizes. When depth limits prevent full traversal, the size would be incomplete and potentially misleading, so `undefined` is returned instead.
+
+**Example:**
+
+```js
+const dirTree = require('directory-tree');
+const tree = dirTree('/some/path', {
+  depth: 1,
+  attributes: ['size', 'type']
+});
+```
+
+Given this structure:
+```
+folder/
+├── file1.txt (100 bytes)
+├── file2.txt (200 bytes)
+└── subfolder/
+    └── file3.txt (300 bytes)
+```
+
+The result will be:
+```js
+{
+  "path": "folder",
+  "name": "folder",
+  "size": undefined,
+  "type": "directory",
+  "children": [
+    {
+      "path": "folder/file1.txt",
+      "name": "file1.txt",
+      "size": 100,
+      "type": "file"
+    },
+    {
+      "path": "folder/file2.txt",
+      "name": "file2.txt",
+      "size": 200,
+      "type": "file"
+    },
+    {
+      "path": "folder/subfolder",
+      "name": "subfolder",
+      "size": undefined,
+      "type": "directory"
+    }
+  ]
+}
+```
+
+**Note:** When serializing to JSON (e.g., `JSON.stringify(tree)`), `undefined` values are omitted. Properties with `undefined` will not appear in the JSON string.
+
 ## Adding custom fields
 You can easily extend a `DirectoryTree` object with custom fields by adding them to the custom field.
 For example add an `id` based on the path of a `DirectoryTree` object for each directory and file like so:
@@ -226,6 +288,6 @@ $ npx directory-tree --path /Users/user/target --attributes type,extension --pre
 -p, --path string      🗂 The input folder to process. Required.                                     
 -e, --exclude string   🐒 Exclude some folders from processing by regexp string. Ex -e "test_data/some_dir$|js|.DS_Store"                                            
 -o, --output string    📝 Put result into file provided by this options. Overwrites if exists.       
--d, --depth number     ☞ Reads dirs in deep as specified. Usage of size attribute with depth option is prohibited.                                                                
---attributes string    ℹ️ Grab file attributes. Example: --attributes size,type,extension. Usage of size attribute with depth option is prohibited                                
+-d, --depth number     ☞ Limits directory traversal to specified depth. Combined with size, directories at depth limit have size: undefined.
+--attributes string    ℹ️ Grab file attributes. Example: --attributes size,type,extension. With depth, directories at limit have size: undefined.                                
 --pretty               💎 Json pretty print

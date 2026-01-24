@@ -30,12 +30,12 @@ const optionList = [
         name: 'depth',
         alias: 'd',
         type: Number,
-        description: '☞ Reads dirs in deep as specified. Usage of size attribute with depth option is prohibited.'
+        description: '☞ Limits directory traversal to specified depth. Combined with size, directories at depth limit have size: undefined.'
     },
     {
         name: 'attributes',
         type: String,
-        description: 'ℹ️ Grab file attributes. Example: --attributes size,type,extension. Usage of size attribute with depth option is prohibited'
+        description: 'ℹ️ Grab file attributes. Example: --attributes size,type,extension. With depth, directories at limit have size: undefined.'
     },
     {
         name: 'pretty',
