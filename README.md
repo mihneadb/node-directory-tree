@@ -2,7 +2,7 @@
 
 Creates a JavaScript object representing a directory tree.
 
-This library gets [~100k downloads per week](http://npm-stats.org/#/directory-tree). If you find it useful, feel free to <a href="https://www.buymeacoffee.com/pxhxnsxsbn"><img height="40" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" /></a> .
+This library gets [~400k downloads per week](https://npm-stat.com/charts.html?package=directory-tree). If you find it useful, feel free to <a href="https://www.buymeacoffee.com/pxhxnsxsbn"><img height="40" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" /></a> .
 
 ## Install
 
